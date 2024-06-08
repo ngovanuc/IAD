@@ -1,0 +1,21 @@
+Super-learning: The little-known skill that makes all the difference
+https://www.lifelabslearning.com/blog/super-learning
+
+How to Develop Super Learner Ensembles in Python
+https://machinelearningmastery.com/super-learner-ensemble-in-python/#:~:text=The%20super%20learner%20is%20an,that%20you%20may%20have%20investigated.
+
+Super Learner versus Deep Neural Network
+https://towardsdatascience.com/super-learner-versus-deep-neural-network-aa78547aabd7
+
+Stacking Algorithms in Machine Learning
+https://www.analyticsvidhya.com/blog/2022/11/stacking-algorithms-in-machine-learning/#:~:text=Introduction,ground%20models%20and%20meta%20models.
+
+ML-Ensemble: High performance ensemble learning in Python
+http://ml-ensemble.com/
+
+
+
+PHƯƠNG PHÁP ĐỀ XUẤT:
+- sử dụng phương pháp super learner trong machine learning
+- sử dụng phương pháp DSCGAN và cải tiến để phù hợp với đầu ra mong muốn (tham khảo Xin-Feng)
+
