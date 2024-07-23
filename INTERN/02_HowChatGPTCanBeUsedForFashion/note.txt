@@ -1,0 +1,5 @@
+- chuyển sang file word bản GPT for fashion 
+- add thông tin của thầy Đức với anh Thọ
+- tên tác giả để chữ thường (viết hoa chữ cái đầu)
+- các thông tin trên bài báo: đọc, tìm và bổ sung thông tin + trích dẫn
+- tim hiểu zortero, mendelay
