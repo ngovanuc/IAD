@@ -1,0 +1,313 @@
+\documentclass[11pt,a4paper]{article}
+%\usepackage{lineno,hyperref}
+\usepackage{authblk}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{float}
+\usepackage[dvips]{graphicx}
+\usepackage{subcaption}
+\captionsetup{font=small}
+\usepackage{placeins} 
+%\usepackage[pdftex]{graphicx}
+%\usepackage{epsfig}
+\usepackage[caption=false]{subfig}
+\usepackage{csquotes}
+\usepackage{array}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{psfrag}
+\usepackage{soul}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{lscape}
+\usepackage{enumerate}
+\usepackage{caption}
+\usepackage{booktabs}
+% \usepackage{subcaption}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage[super]{natbib}
+\usepackage[printonlyused]{acronym}
+\newcommand{\fig}[1]{Figure~\ref{#1}}
+\newcommand{\equ}[1]{(\ref{#1})}
+\newcommand{\tab}[1]{Table~\ref{#1}}
+\newcommand{\ud}{\mbox{d}}
+\newenvironment{red}{\color{red}}{}
+\newenvironment{blue}{\color{blue}}{}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\usepackage[linesnumbered, ruled, vlined]{algorithm2e}
+\usepackage{amsmath, amssymb, bm}
+\newcommand*\samethanks[1][\value{footnote}]{\footnotemark[#1]}
+\title{Explainable Lightweight Federated Learning for Load Forecasting with Smart Meter data}
+
+
+\author[1]{Le Vu Hoang Duc}
+\author[1]{Ngo Van Uc}
+\author[2,1]{Kim Duc Tran} 
+\author[2]{Ludovic Koehl}
+\author[2]{Kim Phuc Tran} 
+
+\affil[1]{International Chair in DS \& XAI, International
+Research Institute for Artificial Intelligence and Data Science, Dong A University, Danang, Vietnam}
+\affil[2]{Univ. Lille, ENSAIT, ULR 2461 - GEMTEX - G\'enie et Mat\'eriaux Textiles, F-59000 Lille, France}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The purpose of forecasting electricity demand is to achieve a balance between supply and demand between providers and customers, which is a crucial factor in the energy field. This study aims to employ an approach using XAI and FL in a DNN model, combined with data-driven techniques to deliver accurate predictions based on data from current smart meter systems in smart buildings towards a case study based on load forecasting for households. The paper continues the work on federated learning to ensure the privacy of individual meter data, allowing several parties, commonly referred to as clients, to keep their data distributed and not centralized in the training process. Additionally, the paper highlights the benefits of the XAI approach in providing clear and reasonable explanations for the model's predictions. This not only supports energy providers in analysis, decision-making, and optimizing operations but also enhances the trust and understanding of stakeholders regarding the forecasting model, thereby optimizing the efficiency of energy distribution and usage.
+\end{abstract}
+
+\noindent\textbf{Keywords:}  Deep neural network, Explainable Artificial Intelligence,  Federated learning, Energy Distribution
+
+\section{Introduction}
+
+The advancement of smart grid systems has led to the adoption of smart meters (SM) devices in power systems as an alternative to humans to record electricity consumption indicators. The large amount of data from SM brings many benefits to electricity suppliers, such as the data related to electricity consumption demand for each region and specific time. Therefore, predicting the demand for electricity consumption paves the way for energy services and data-based business models \cite{athanasiadis2024review}.
+
+Many advanced deep learning models have been deployed in load forecasting. However, modern models often operate as “black boxes”, making it difficult for people to understand and trust their forecasting mechanism \cite{yaprakdal2023multivariate}. Some complex models, such as deep neural networks, make it difficult to interpret the prediction results and lead to a lack of model transparency \cite{jang2023raid}. These challenges require an innovative solution that meets the requirements of user data security and privacy but also provides accurate load forecasting performance, while explainability and transparency of outputs are key to sustainability.
+
+Therefore, in this study, we use Explainable Artificial Intelligence (XAI) techniques to explain the prediction results on a lightweight DNN model in the FL framework published in \cite{duttagupta2023exploring}. By using XAI, we explain how data features influence model output, ensuring transparency and trustworthiness, while the federated learning technique helps secure user data. The main contributions of this research include: 
+\begin{itemize}
+    \item Re-implementing a lightweight deep learning model within the FL framework to forecast the load with the same or higher accuracy than other advanced models, the purpose is to optimize the computational resources while the model must be suitable for resource-constrained environments.
+    
+    \item Integrating XAI techniques into the model, helping to explain load forecast results, thereby increasing transparency, accountability, and ethics in forecasting applications. This helps us better understand the model results and increase trust in the system.
+\end{itemize}
+
+This study includes three parts, in Related work we review a series of studies that have been done to address the load forecasting problem, then outline the current context and reasons why XAI is needed to address this problem in the era of artificial intelligence. Next, in the Explainable Lightweight Federated Learning for load forecasting section, we briefly discuss the lightweight DNN model within the FL and XAI framework. Finally, we apply XAI to the test data and explain how the model predicts the output.
+
+\section{Related work and background}
+The need for load forecasting in power systems is becoming increasingly urgent, especially in the context of the strong development of smart meter systems \cite{athanasiadis2024review}. Traditional and modern methods have been widely applied to solve this problem. The Deep Neural Network (DNN)-based method has been proven to be effective in its ability to extract features from large and complex data \cite{taye2023understanding}. A. M. Pirbazari et al. (2020) proposed using Long-short Term Memory (LSTM) and other deep learning models for load forecasting, and the results showed that the model can generalize satisfactorily and produce accurate results if they are provided with sufficient data \cite{mehdipour2020short}. In addition, the study by A. Duttagupta et al. (2024) used a federated learning approach using a lightweight DNN for load forecasting. The results showed that the model is simpler but has comparable accuracy to other state-of-the-art models while still ensuring the privacy of individual smart meter data\cite{duttagupta2023exploring}. 
+
+The mentioned studies using the DNN method have shown impressive results in the load forecasting task. However, as models become more complex, the results of these models become difficult to understand and question their reliability due to their “black box” nature. It is necessary to understand and explain the reasoning behind the results of AI models \cite{ali2023explainable}. Therefore, this study aims to apply XAI to a lightweight federated learning model, thereby explaining the outputs. This research focuses on providing a clear and reliable explanation for the predictions of lightweight DNN models in the FL framework, which helps improve transparency and accountability in smart energy systems, making an important contribution to safe and sustainable systems in the context of rapid development of distributed computing and big data from smart metering devices for smart buildings.
+
+\section{Explainable Lightweight Federated Learning for load forecasting}
+In this section, we present the concept of federated learning and how it can be applied in load forecasting. Subsequently, we conduct data preparation to adapt our FL simulation with the lightweight deep neural networks model. Then, XAI is applied to improve the trustworthiness and transparency of the model.
+\subsection{Federated learning}
+In the context of growing concerns about data privacy, Federated Learning (FL) enables training ML models across devices without sharing raw data, safeguarding user privacy \cite{husnoo2023secure}. Figure 1 shows the FL setup, where each smart building trains a local model on its edge data.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.800\textwidth]{Figures/Pictures/FL.png}
+    \caption{
+    Application of Federated Learning in load forecasting analysis.}
+    % \label{fig:Figure 1}
+\end{figure}
+
+\begin{algorithm}[H]
+\caption{Federated Learning Algorithm}
+\KwIn{Total device set $\mathbit{M}$, selected device set $\mathbit{N}$, batch size $\mathbit{B}$, learning rate $\mathbit{\eta}$, local epochs $\mathbit{E}$}
+\KwOut{Global model $\mathbit{W}$}
+
+\textbf{Initialization:} Randomly initialize global model $\mathbit{W}$\;
+\While{not converged}{
+    \ForEach{device $n$ in selected device set $\mathbit{N}$}{
+        Retrieve local data $\mathbit{P}$ on device $\mathbit{n}$\;
+        Train local model $w_n$ on data $\mathbit{P}$ for $\mathbit{E}$ epochs with batch size $\mathbit{B}$ and learning rate $\mathbit{\eta}$\;
+        Share local model $\mathbit{w}_\mathbit{n}$ with central server\;
+    }
+    Aggregate models $\mathbit{w}_\mathbit{n}$ from all devices on a central server using federated averaging\;
+    Update global model $\mathbit{W}$ as the average of all local models $\mathbit{w}_\mathbit{k}$\;
+    Share global model $\mathbit{W}$ with all devices\;
+}
+\end{algorithm}
+The FL algorithm flow used in this study, as detailed in \cite{duttagupta2023exploring} and derived from \cite{gholizadeh2022federated}, begins with selecting a subset of user devices ($\mathbit{N}$) from the total population $\mathbit{M}$ and initializing a global model $\mathbit{W}$. This model is distributed to the selected devices for parallel training on their local data $\mathbit{P}$, using parameters such as batch size $\mathbit{B}$, learning rate $\mathbit{\eta}$, and local epochs $\mathbit{E}$. The locally updated models $\mathbit{w}_{\mathbit{n}}$ are sent back to the server, which aggregates them into a new global model $\mathbit{W}$ via weighted averaging. This updated global model is redistributed to the devices, and the process repeats until the global loss function (GLF) shows no significant improvement, indicating it has reached a minimum.
+
+\subsection{Propose method}
+In figure 2 is our proposed method, first the data will be collected and preprocessed. Then we cluster the data into 18 clusters using cluster algorithm. We use 60 percent of the clusters for training purpose and the remaining 40 percent for testing purpose. Then the data will be processed appropriately to train the DNN model in FL framework, during this process we perform model evaluation and when convergence for FL model is reached, we stop the training process and use XAI to explain the model's output prediction result.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figures/Pictures/XAI_system.png} 
+    \caption{Integrate XAI into Federated learning}
+    \label{fig:Picture8}
+\end{figure}
+
+\subsection{Dataset}
+This study uses the publicly available SmartMeter Energy Consumption dataset from 5,567 London households \cite{ukpowernetworks2014} for load forecasting in smart buildings. Due to limited data on smart building consumption, we use household data as an alternative method, assuming households represent smart buildings without affecting the scope. The dataset covers energy consumption from November 2011 to February 2014, with half-hourly data including building ID, tariff type, timestamp, and half-hourly electricity consumption (kWh/hh).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Figures/Pictures/total_consumption.png} 
+    \caption{Annual energy consumption trend of a random building.}
+    \label{fig:Picture2}
+\end{figure}
+
+In the first step of analysis, we review total monthly consumption data to examine variability in energy use and observe yearly fluctuations in consumer patterns. Figure 2 shows the energy consumption of building MAC001016 from May 2012 to April 2013, revealing higher consumption in December, January, and February, similar to building MAC000025 \cite{duttagupta2023exploring}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Figures/Pictures/consumption_september.png} 
+    \caption{Comparison of daily consumption over a month: high consumption building vs average consumption building \cite{duttagupta2023exploring}.}
+    \label{fig:Picture3}
+\end{figure}
+
+Figure 3 displays the energy consumption of all buildings for September 2012. Buildings with average half-hourly consumption below 0.09 kWh/hh or above 1.35 kWh/hh are considered outliers and removed, reducing the dataset from 5,547 to 4,672 buildings and eliminating potential bias.
+
+\subsection{Data Preparation for Federated Learning in load forecasting}
+Firstly, in the preprocessing data for preparing the data to train the DNN model using the FL framework, we clustering the data into 18 clusters using K-Means clustering to provide better generalization for deep learning models when used for load forecasting \cite{bandara2020forecasting}. This also improves the aggregation phase in the distribution station, where local models from smart buildings with similar performance are better able to achieve unbiased aggregation to arrive at a new global model \cite{duttagupta2023exploring}. The electricity consumption data from October 1, 2011, to February 28, 2013, are used for training purposes. The entire training and testing data are divided into a 60:40 ratio for training and testing purposes, respectively as this result\cite{duttagupta2023exploring}.
+
+\subsection{Using TensorFlow Federated framework and Model architecture}
+In this study, we use the lightweight DNN model architecture in the FL framework that has been shown to perform well on this dataset in the previous study\cite{duttagupta2023exploring}. We build training and inference (simulation) flows using the Python-based Tensorflow-Federated (TFF) library and related tools to simulate the model training process on each building and the weighting process for the global model. Each building has a unique ID used to access its specific data streams and clusters throughout the training and evaluation phases.
+
+The model architecture described in \cite{duttagupta2023exploring} is reused. The model consists of 4 layers, including 2 hidden layers, and the overall model follows the shape $[16, 8, 4, 1]$. The activation function is ReLU. The author uses RMSE and MAE to evaluate the loss for the training process, and all three metrics (RMSE, MAE, and MAPE) for the experimental task. The learning rate is set to $0.01$ for all local models. In our study, we use input data consisting of $336$ half-hourly electricity consumption records, equivalent to a week’s electricity consumption data. The output of the model will be the predicted continuous electricity consumption for one day, equivalent to $48$ half-hour intervals.
+
+\subsection{Performance metrics}
+To evaluate the error of the forecast results, this study uses metrics including average building consumption including MAE, RMSE, and mean absolute percentage error (MAPE). These metrics allow a comprehensive evaluation and comparison of the prediction accuracy independent of the average building consumption \cite{duttagupta2023exploring}.
+\[
+\text{MAE} = \frac{1}{N} \sum_{i=1}^{N} \left| X(i) - Y(i) \right|
+\]
+\[
+\text{RMSE} = \sqrt{\frac{1}{N} \sum_{i=1}^{N} \left( X(i) - Y(i) \right)^2}
+\]
+
+\[
+\text{MAPE} = \frac{1}{N} \sum_{i=1}^{N} \left| \frac{X(i) - Y(i)}{X(i)} \right| \times 100
+\]
+Where $X$ represents the actual value and $Y$ represents the predicted value, with $N$ being the number of data points.
+
+\subsection{Explainable Artificial Intelligence (XAI)}
+Building ML or AI systems as shown in Figure 5 with human-understandable explanations is central to XAI research, addressing the limited interpretability of black-box models. XAI enhances understanding through interpretable models (e.g., decision trees) or post-hoc explanations, which provide interpretability after training. Local interpretability focuses on individual predictions, while global interpretability examines aggregated input contributions across the model.  
+
+XAI supports human-centered design, enabling users to evaluate AI trustworthiness and transparency by assessing explanation quality. This helps energy operators make informed decisions, detect anomalies, and enhance grid efficiency and stability.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.00\textwidth]{Figures/Pictures/xai.png} % Điều chỉnh kích thước bằng width
+    \caption{XAI in the context of load forecasting analysis}
+    \label{fig:Picture4}
+\end{figure}
+
+In this study, we apply SHAP (SHapley Additive exPlanations) to the model for the prediction results to explain the important features that influence the output. The Shapley value, derived from cooperative game theory, ensures a fair distribution of payoffs among players. In the context of XAI, the Shapley value attributes the contribution of each feature to the overall prediction. The importance of feature $\mathbit{i}$ is defined by the Shapley value \cite{ShapleyAvalueforN-persongames}:
+\[
+\mathbf{\phi}_\mathbit{i} = \frac{1}{\left|\mathbit{N}\right|!} \sum_{\mathbit{S \subseteq \mathbit{N} \setminus \{i\}}} {\left|\mathbit{S}\right|! \left(\left|\mathbit{N}\right| - \left|\mathbit{S}\right| - \mathbf{1}\right)!} \left[ \mathbit{f}\left(\mathbit{S} \cup \{\mathbit{i}\}\right) - \mathbit{f}\left(\mathbit{S}\right) \right]
+\]
+
+Where $\mathbit{N}$ is the set of all features, $\mathbit{S}$ S as a subset of $\mathbit{N}$ to consider the permutation of features excluding $\mathbit{i}$, and $\mathbit{f}$ is considered as the objective function of the prediction model.
+
+Based on the Shapley value, it provides relevance values for various features in the input tabular data, indicating the contribution of each feature to the model's output. SHAP offers a unifying framework for feature attribution, helping clients understand the relative importance of different Time-of-day consumption attributes in forecasting future outcomes. Furthermore, there are visualization techniques that create visual representations of the features learned by the model.
+
+\section{Illustrative example}
+% \label{Sec: example}
+In this chapter, we present the details of the experimental results from our implementation of federated learning in this study\cite{duttagupta2023exploring}, as well as our proposed XAI approach.
+
+\subsection{Implementation Federated learning results}
+We conduct model training using two methods: the centralized method and the FL framework. For the centralized method, the model goes through 21 epochs, while for the FL framework, the model converges after 21 rounds of global weight updates. The model hyperparameters are similar in both DNN models. Our experimental results are consistent with those in \cite{duttagupta2023exploring}, where we found that the lightweight DNN method using the FL framework achieved comparable or better accuracy than the traditional method on the test clusters. Figure 7 shows the RMSE of the FL framework model for a random client, as presented in Table 1. It is lower than that of the traditional centralized model. This suggests that the FL model can predict more accurately and has less error. The studies using the DNN method have shown impressive results in the load forecasting task.
+.
+\begin{table}[ht]
+\centering
+\setlength{\arrayrulewidth}{0.4mm}
+
+\begin{tabular}{c c c}
+
+\hline
+\setlength{\arrayrulewidth}{1mm} 
+\textbf{LCLid} & \textbf{Cluster} & \textbf{Date} \\ \hline
+MAC000123 & 8 & 01/03/2023 - 28/02/2024\\ 
+\end{tabular}
+\caption{Data for comparison between centralized and FL model}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\textwidth]{Figures/Pictures/comparision.png} 
+    \caption{Energy profile yearly trend of a random smart building.}
+\end{figure}
+
+After completing the training, we conducted an evaluation of the electricity consumption over the course of a day for a few random buildings. Figure 8 shows the prediction results for three random smart buildings, as presented in Table 2, for a randomly selected period of the year. It can be observed that electricity consumption varies throughout the year. The results in the chart indicate that our model tends to predict higher consumption than the actual values during peak periods. However, the error between the actual and predicted values is negligible.
+
+\begin{table}[ht]
+\centering
+\setlength{\arrayrulewidth}{0.4mm}
+
+\begin{tabular}{c c c}
+
+\hline
+\setlength{\arrayrulewidth}{1mm} 
+\textbf{LCLid} & \textbf{Cluster} & \textbf{Date} \\ \hline
+MAC003770 & 8 & 17/04/2013 - 24/04./2013 \\ 
+MAC000946 & 8 & 22/09/2013 - 29/09/2013 \\ 
+MAC000201 & 8 & 20/02/2013 - 27/02/2014 \\ 
+\end{tabular}
+\caption{Evaluation process data}
+\end{table}
+
+%  Hình dự đoán
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.6\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{Figures/Pictures/MAC003770.png} 
+        % \caption{ID household: MAC003770}
+    \end{minipage}\hfill
+    \begin{minipage}{0.38\textwidth}
+        \begin{minipage}{\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{Figures/Pictures/MAC000946.png} 
+            % \caption{ID household: MAC000946}
+        \end{minipage}
+        \vspace{0.5cm}
+        \begin{minipage}{\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{Figures/Pictures/MAC000201.png}
+            % \caption{ID household: MAC000946}
+        \end{minipage}
+    \end{minipage}
+    \caption{Load forecast predicting on random smart buildings}
+\end{figure}
+
+\subsection{SHapley Additive exPlanation}
+First, consider an overview of the SHAP values of the model to identify which features have the most significant impact on the model's output.
+
+This experiment is conducted on a random ID from the testing dataset, with results for MAC000123 as shown in Table 3
+
+\begin{table}[ht]
+\centering
+\setlength{\arrayrulewidth}{0.4mm}
+\begin{tabular}{c c c}
+\hline
+\setlength{\arrayrulewidth}{1mm} 
+\textbf{LCLid} & \textbf{Cluster} & \textbf{Date} \\ \hline
+MAC000123 & 8 & 10/04/2013 - 17/04/2013 \\ 
+\end{tabular}
+\caption{A random smart building for the SHAP Violin plot}
+\end{table}
+
+To observe which periods within the time frame have the most impact on the model's output, we can use a violin plot. This is a summary plot that provides an overview of the distribution and variability of SHAP values for each feature. Individual violin plots are stacked according to the importance of each feature in the model output, with the importance measured by the total absolute SHAP values for each feature \cite{shapdoc}.
+
+Therefore, we conduct experiments on all samples over the energy consumption of one week to predict consumption for a day. 
+
+According to the plot as shown in Figure 9, the waveform illustrates the SHAP value density of each feature and indicates the range over which each feature's impact is positive or negative. This allows us to understand which ranges of each feature have more impact on the model output.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85000\textwidth]{Figures/Pictures/violin2.png} 
+    \caption{SHAP Violin plot for the global model}
+    \label{fig:Picture5}
+\end{figure}
+
+Then, the time at 23:30:00 contributes the most to the model's consumption prediction. 
+
+Subsequently, this experiment is tested on a specific sample taken from client MAC000123, as shown in Table 3. is analyzed using a waterfall plot \cite{shapdoc} as depicted in Figure 10, which provides a local interpretation by focusing on a single sample. This approach is useful for examining all of its features, enabling the identification of model outliers and SHAP outliers.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.850\textwidth]{Figures/Pictures/waterfall2.png} 
+    \caption{SHAP Violin plot for the global model}
+    \label{fig:Picture5}
+\end{figure}
+
+The features of the model are listed along the y-axis, with each feature's value for the given sample displayed in gray. The corresponding SHAP value for each feature is shown in the main panel, with an arrow indicating the direction of influence for each feature. If a row is colored red (blue), it indicates that the SHAP value increases (decreases) the prediction compared to the average or expected prediction.
+
+\section{Discussion and conclusion}
+This study re-implemented \cite{duttagupta2023exploring} the lightweight DNN model in the FL framework to model load forecasting using publicly available electricity consumption datasets. Our implementation simulates real-world power grid conditions and applies XAI for model interpretation. Accordingly, the FL method has been proven to maintain higher accuracy than the traditional method while ensuring data security for customers.
+Using SHAP for XAI, we enhance the explainability of the model by highlighting important features that affect forecast results.  However, the effectiveness of XAI also depends on the diversity and richness of the data, too few features in the data can reduce the explainability of the model.
+
+In summary, this study demonstrates the use of XAI to improve transparency and reliability in load forecasting within the FL framework for the smart building scenario. Future work will focus on testing the model on additional datasets and expanding XAI applications in complex data contexts.
+
+\bibliographystyle{plainnat}
+\bibliography{name}
+% \bibliographystyle{splncs04nat}
+\end{document}
