@@ -1,4 +1,4 @@
-# CMAPSS RUL Prediction with Transformers: A Federated Learning Approach via Flower
+# CMAPSS RUL Prediction with Transformers: A Federated Learning Approach via Flower (PyTorch)
 
 - **The CMAPSS dataset** (Commercial Modular Aero-Propulsion System Simulation) is widely used in the field of predictive maintenance. It provides realistic simulation data for turbofan engine degradation, making it a benchmark for Remaining Useful Life (RUL) prediction. Accurate RUL predictions are crucial for reducing maintenance costs, avoiding unexpected failures, and optimizing asset management in industrial settings.
 - **Remaining Useful Life (RUL) prediction** aims to estimate the time left before a system or component fails. By leveraging advanced machine learning techniques, such predictions help industries transition from reactive to predictive maintenance, ensuring operational efficiency and safety.
