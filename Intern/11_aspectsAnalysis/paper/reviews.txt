@@ -1,0 +1,40 @@
+Ngoài việc mô tả dataset, dưới đây là một số vấn đề khác mà bạn có thể cân nhắc để cải thiện bài nghiên cứu của mình:
+
+### 1. **Phương pháp luận (Methodology)**:
+   - **Vấn đề**: Phần phương pháp của bạn có thể chưa đủ rõ ràng hoặc chi tiết, đặc biệt đối với người đọc không quá quen thuộc với các mô hình như BERT và LSTM.
+   - **Đề xuất**: 
+     - **Làm rõ kiến trúc mô hình**: Mô tả chi tiết hơn về cách kết hợp BERT và LSTM. Bạn có thể dùng sơ đồ hoặc giải thích trực quan hơn để giúp người đọc hiểu rõ dòng chảy dữ liệu qua mô hình. Ví dụ, bạn có thể giải thích kỹ hơn về cách BERT trích xuất đặc trưng và LSTM xử lý chuỗi dữ liệu.
+     - **Giải thích từng bước**: Đảm bảo giải thích rõ từng bước từ tiền xử lý dữ liệu đến huấn luyện mô hình, cùng với lý do chọn các tham số cụ thể (như số tầng ẩn trong LSTM, số token tối đa, v.v.).
+
+### 2. **Đánh giá hiệu suất (Performance Evaluation)**:
+   - **Vấn đề**: Phần này có thể đã cung cấp các chỉ số đánh giá như Accuracy, Precision, Recall, và F1-score, nhưng cần thêm các yếu tố định tính để phân tích kết quả.
+   - **Đề xuất**:
+     - **So sánh chi tiết hơn**: So sánh chi tiết mô hình của bạn với các mô hình khác (như BiLSTM, hoặc các mô hình BERT khác) ngoài việc chỉ nêu ra các con số F1-score. Bạn có thể cung cấp thêm phân tích về **tại sao mô hình của bạn lại tốt hơn** và những điểm mạnh, điểm yếu của mô hình so với các phương pháp khác.
+     - **Phân tích sâu các chỉ số**: Nếu có các chênh lệch lớn giữa Precision và Recall cho một số khía cạnh (ví dụ như STORAGE), hãy thảo luận sâu hơn về nguyên nhân và tác động của việc này đến hiệu suất tổng thể.
+
+### 3. **Thảo luận về kết quả (Discussion of Results)**:
+   - **Vấn đề**: Có thể phần thảo luận chưa đủ chi tiết về ý nghĩa của các kết quả hoặc không liên kết đủ với mục tiêu ban đầu của nghiên cứu.
+   - **Đề xuất**:
+     - **Liên hệ với mục tiêu nghiên cứu**: Khi trình bày kết quả, liên kết rõ ràng các phát hiện với các câu hỏi hoặc mục tiêu ban đầu của nghiên cứu. Ví dụ, nếu mục tiêu là cải thiện độ chính xác cho dữ liệu tiếng Việt, hãy làm rõ mô hình của bạn đã giải quyết được vấn đề này như thế nào.
+     - **Đưa ra lý giải rõ ràng cho các kết quả**: Nếu có những chỉ số thấp hoặc không như kỳ vọng (ví dụ như F1-score của STORAGE), hãy đưa ra các giải thích khả dĩ, ví dụ như dữ liệu không cân bằng, độ phức tạp ngữ cảnh của tiếng Việt, v.v.
+
+### 4. **Kết luận và hướng phát triển tương lai (Conclusion and Future Work)**:
+   - **Vấn đề**: Phần kết luận của bạn có thể chưa nêu rõ được các giá trị của nghiên cứu và hướng phát triển tương lai chưa cụ thể.
+   - **Đề xuất**:
+     - **Tóm tắt các đóng góp chính**: Nhấn mạnh rõ ràng các đóng góp chính của nghiên cứu, không chỉ về mặt kỹ thuật (ví dụ như đạt độ chính xác cao) mà còn về ứng dụng thực tiễn.
+     - **Hướng nghiên cứu tương lai**: Đưa ra các hướng cụ thể cho nghiên cứu tương lai, chẳng hạn như thử nghiệm trên các tập dữ liệu khác, áp dụng các mô hình tiên tiến hơn (như RoBERTa hoặc BART), hoặc điều chỉnh mô hình để xử lý tốt hơn vấn đề mất cân bằng dữ liệu.
+
+### 5. **Tính ứng dụng thực tiễn (Practical Applications)**:
+   - **Vấn đề**: Nếu bài nghiên cứu hướng tới ứng dụng thực tế (ví dụ như trong thương mại điện tử), bạn cần giải thích rõ hơn cách mô hình có thể được triển khai.
+   - **Đề xuất**: 
+     - **Cụ thể hóa ứng dụng**: Mô tả cụ thể hơn cách mô hình của bạn có thể được áp dụng vào hệ thống phân tích phản hồi khách hàng trong thương mại điện tử, hệ thống gợi ý sản phẩm, hoặc quản lý trải nghiệm khách hàng.
+     - **Thảo luận về thách thức triển khai**: Nhắc đến những thách thức mà doanh nghiệp có thể gặp phải khi triển khai mô hình của bạn (về mặt chi phí, hiệu suất, yêu cầu tính toán), và làm thế nào để vượt qua chúng.
+
+### 6. **Nguồn tài liệu và tham khảo (References and Citations)**:
+   - **Vấn đề**: Có thể thiếu các nguồn tài liệu hoặc một số trích dẫn chưa được làm rõ.
+   - **Đề xuất**: 
+     - **Cập nhật các nghiên cứu gần đây**: Đảm bảo rằng bạn đã trích dẫn đủ các nghiên cứu liên quan, đặc biệt là các nghiên cứu mới về BERT, LSTM, và phân tích cảm tính trong tiếng Việt. Nếu có nghiên cứu mới sau khi bạn hoàn thành bài viết, hãy cố gắng cập nhật.
+     - **Trích dẫn cụ thể hơn**: Trong phần mô tả phương pháp và kết quả, bạn có thể trích dẫn các nghiên cứu khác mà bạn đang so sánh hoặc liên hệ, để đảm bảo tính minh bạch và khoa học.
+
+### Tóm lại:
+Ngoài phần dataset, bạn cần chú ý bổ sung và làm rõ thêm ở các phần phương pháp, đánh giá mô hình, thảo luận kết quả, và tính ứng dụng thực tiễn. Điều này sẽ giúp bài nghiên cứu của bạn toàn diện hơn và dễ hiểu hơn đối với người đọc, đồng thời làm nổi bật giá trị của nghiên cứu.

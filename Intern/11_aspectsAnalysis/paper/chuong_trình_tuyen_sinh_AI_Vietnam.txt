@@ -1,0 +1,60 @@
+🍀 Tuyển Sinh: ADVANCED AIO 2024 [ KHOA HỌC DỮ LIỆU VÀ TRÍ TUỆ NHÂN TẠO]
+• Deadline:  Đăng ký trước 30/09/2024 
+- Khai giảng: 30/09/2024 - Chương trình học AIO kết thúc dự kiến 5/2025.
+• Đăng ký: Inbox Facebook hoặc liên hệ zalo: 091-111-8758 trước ngày 30/9/2024
+• ĐỐI TƯỢNG:  Dành cho các bạn muốn học Khoa Học Dữ Liệu Và Trí Tuệ Nhân Tạo và đã có kiến thức về lập trình. 
+• ĐIỀU KIỆN: Bạn cần có 28 giờ / tuần để có thể học tập thật tốt. Bạn cần có kiến thức về lập trình python (Team sẽ không kiểm tra khả năng lập trình của bạn, bạn cần xác định được khả năng lập trình của mình)
+🍀 AIO ADVANCED CÓ GÌ?
+Chương trình advanced là chương trình tiếp tục với AIO2024 Foundation. Các bạn sẽ được học tiếp từ Module 4 thuộc bộ AIO2024.
+Phần 1: Kiến thức
+1. Steps into Deep Learning 
+2. Different Deep Architectures for Different Data (Using PyTorch)
+3. Deep Learning Applications for Images
+4. Deep Learning Applications for Text
+5. Generative Models (GAN and CDGAN, Pix2Pix and Cycle GAN , Diffusion Models, Domain Adaptation 
+6. Advanced Deep Learning, Mixer Model, Mamba Model, KAN Model, Data Augmentation
+7. LLMs
+Phần 2: Projects
+• Tabular Data Project: Sales Prediction (Linear and non-linear Regressions)
+• Text Data Project: Tweet Sentiment Classification
+• Image data Project: Gradient Vanishing in MLP
+• Image Project: OCR (Yolov9+CNN) Information Extraction from ID Card
+• Time-series project: Temperature Forecasting from Machines
+• Image Project: Footballer Tracking
+• Image Project: Medical Image Analysis
+• Text Project: Poem Generation
+• Text Project: VN-EN Language Translation
+• Project: Diffusion-based Image Colorization
+• Project: Image Generation
+• Project: Music Style transfer
+Phần 3: Kiến thức và kỹ năng được hỗ trợ
+• Machine Learning, deep learning
+• Data Analysis and Manipulation
+• Statistics and Mathematics
+• Version Control (Gits)
+• Problem-Solving Skills
+• Pytorch framework
+• Artificial Intelligence Mastery
+• Data Preprocessing & Feature Engineering
+• Natural Language Processing(NLP)
+• Computer Vision
+• Big Data Technologies
+• Model Deployment & Scalability Research skill
+• Strong interpersonal skills
+• Software Development
+• Leadership & Team
+• Collaboration Effective Communication
+• Continuous Learning &Innovation
+Lưu ý: Phần này tùy theo nhu cầu và khả năng tham gia teamwork của các bạn để đạt được kỹ năng tốt nhất, nếu bạn chỉ quan tâm tới kiến thức học AI thôi bạn có thể tập trung mục Phần 1 Kiến Thức
+Phần 4: Thời gian học tập
+• Tất cả các buổi học sẽ bắt đầu từ 8:00 PM - 10:00 PM
+• Bạn được tham gia tất cả các buổi học (Main Class và Extra Class)
+• Chương trình chính: Thứ 4 - Thứ 6 - Chủ Nhật (Dành cho tất cả các bạn )
+• Chương trình extra: 
+• Thứ 3: Bạn cần cải thiện thêm các kỹ năng về IT, hoặc bạn cảm thấy chưa tự tin về kiến thức (Coding - Thuật Toán), buổi này phù hợp bổ sung kiến thức dành cho các bạn non-tech
+• Thứ 5 - 7: [Advanced Class] bạn có thể bổ sung thêm kiến thức từ các kỹ năng khác để bổ trợ cho chuyên ngành (nghiên cứu, các môn liên quan Software Engineering, training các cuộc thi về AI - Data science)
+Phần 5: Giảng Viên:
+Các giảng viên thuộc admin AIO hướng dẫn.
+Phần 6: Học Phí:
+Vì để duy trì team, tái đầu tư và phát triển, AIO là chương trình có phí, bạn liên lạc với page để nắm rõ hơn thông tin chi tiết nhé !
+Cảm ơn bạn đã dành thời gian đọc hết tin của admin ! Mong rằng team có cơ hội cùng học tập với bạn!
