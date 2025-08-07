@@ -1,0 +1,14 @@
+datasets/*
+
+TranAD/checkpoints/*
+!TranAD/checkpoints/README.md
+
+TranAD/data/MSDS/*
+!TranAD/data/MSDS/README.md
+TranAD/data/WADI/*
+!TranAD/data/WADI/README.md
+
+TranAD/processed/*
+!TranAD/processed/README.md
+
+TranAD_Execution_Log.txt
